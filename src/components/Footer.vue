@@ -8,16 +8,16 @@
         </div>
         
         <div class="flex space-x-4">
-          <a href="https://www.linkedin.com/in/juanperez" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/mario-josué-ortegón-chan-b2a53a2b8" target="_blank" rel="noopenes noreferrer" class="text-gray-300 hover:text-white transition-colors">
             <i class="fab fa-linkedin text-2xl"></i>
           </a>
-          <a href="https://github.com/juanperez" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+          <a href="https://github.com/MarioOrtegon333" target="_blank" class="text-gray-300 hover:text-white transition-colors">
             <i class="fab fa-github text-2xl"></i>
           </a>
-          <a href="https://twitter.com/juanperez" target="_blank" class="text-gray-300 hover:text-white transition-colors">
-            <i class="fab fa-twitter text-2xl"></i>
+          <a href="https://wa.me/529991559240" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
           </a>
-          <a href="mailto:contacto@juanperez.com" class="text-gray-300 hover:text-white transition-colors">
+          <a href="mailto:mortegon024@gmail.com" class="text-gray-300 hover:text-white transition-colors">
             <i class="fas fa-envelope text-2xl"></i>
           </a>
         </div>

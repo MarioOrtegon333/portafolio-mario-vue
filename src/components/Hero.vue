@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-section pt-28 pb-20 px-4 bg-gradient-to-r from-gray-800 to-gray-900">
+  <section id="hero" class="hero-section pt-28 pb-20 px-4 bg-gradient-to-r from-gray-800 to-gray-900">
     <div class="container mx-auto flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-8 md:mb-0 fade-in" style="animation-delay: 0.2s;">
         <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg" alt="Desarrollador" class="rounded-lg shadow-2xl">
