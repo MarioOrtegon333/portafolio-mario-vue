@@ -1,5 +1,9 @@
 <template>
-  <div v-if="loading">Cargando...</div>
+  <div v-if="loading">
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-600"></div>
+    </div>
+  </div>
   <div v-else-if="company">
     <section id="company-detail" class="detail-section pt-24 pb-20 px-4 bg-white min-h-screen">
       <div class="container mx-auto">
@@ -9,16 +13,17 @@
             <i class="fas fa-arrow-left mr-2"></i> Regresar
           </button>
         </div>
-
-
           <div class="bg-white rounded-lg shadow-md p-8 mb-10 border border-gray-200">
             <div class="grid md:grid-cols-3 gap-8">
               <div class="md:col-span-2">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Descripción</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">{{ company.descripcion }}</p>
 
-                <h3 class="text-xl font-semibold mb-4 text-gray-800">Periodo de Trabajo</h3>
-                <p class="text-gray-600 mb-6">{{ company.periodo }}</p>
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Proyecto</h3>
+                <p class="text-gray-600 mb-6">{{ company.proyecto }}</p>
+
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Actividades que realice</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">{{ company.labores }}</p>            
 
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Tecnologías Utilizadas</h3>
                 <div class="flex flex-wrap gap-2">
@@ -29,27 +34,25 @@
 
               <div>
                 <div class="bg-gray-100 p-6 rounded-lg">
-                  <h3 class="text-xl font-semibold mb-4 text-gray-800">Información</h3>
+                  <h3 class="text-xl font-semibold mb-4 text-gray-800">Información adicional</h3>
                   <ul class="space-y-3">
-                    <li class="flex items-center">
-                      <i class="fas fa-map-marker-alt w-8 text-blue-600"></i>
-                      <span class="text-gray-700">{{ company.puesto }}</span>
-                    </li>
-                    <li class="flex items-center">
+                      <li class="flex items-center">
                       <i class="fas fa-user-tie w-8 text-blue-600"></i>
                       <span class="text-gray-700">{{ company.puesto }}</span>
                     </li>
                     <li class="flex items-center">
+                      <i class="fas fa-clock w-8 text-blue-600"></i>
+                      <span class="text-gray-700">{{ company.periodo }}</span>
+                    </li>
+                    <li class="flex items-center">
                       <i class="fas fa-project-diagram w-8 text-blue-600"></i>
-                      <span class="text-gray-700">{{ company.link }}</span>
+                      <a :href="company.link" class="nav-link text-gray-700 hover:text-blue-600" target="_blank" rel="noopenes noreferrer">Ir al proyecto</a>                      
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-
-          <h3 class="text-2xl font-semibold mb-6 text-gray-800">Capturas del proyecto</h3>
 
           <company-carousel-images :companyImg="companyImg" />
         
@@ -97,6 +100,12 @@ export default {
       this.company = null;
     } finally {
       this.loading = false;
+      this.$nextTick(() => {
+        const section = document.getElementById('company-detail');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     }
   }
 }

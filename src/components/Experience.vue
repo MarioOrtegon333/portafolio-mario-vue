@@ -2,11 +2,22 @@
   <section id="experience" class="py-20 px-4 bg-white">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold mb-12 text-gray-800 section-title">Mi Experiencia</h2>
+
+      <p class="text-gray-600 mb-10">He colaborado con diversas empresas líderes en el sector tecnológico, contribuyendo
+        al desarrollo de soluciones innovadoras y escalables.</p>
+
+      <div v-if="loading">
+        <div class="flex items-center justify-center min-h-screen">
+          <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-600"></div>
+        </div>
+      </div>
+      <div v-else-if="!companies.length" class="text-center text-gray-600">
+        <p>No se encontraron empresas.</p>
+      </div>
+      <div v-else >
+        <company-carousel :companies="companies" />
+      </div>
       
-      <p class="text-gray-600 mb-10">He colaborado con diversas empresas líderes en el sector tecnológico, contribuyendo al desarrollo de soluciones innovadoras y escalables.</p>
-      
-      <!-- Companies Carousel -->
-      <company-carousel :companies="companies" />
     </div>
   </section>
 </template>
@@ -21,18 +32,21 @@ export default {
   },data() {
     return {
       companies: []
+      ,loading: true
     };
   },
   async created() {
     try {
       const res = await fetch(`https://portfolio-node-api-av7i.onrender.com/empresaList`);
-      const data = await res.json();
+      const dataRes = await res.json();
+      const data = [...dataRes].reverse();
       console.log(data);
       // Assuming the API returns an array of companies
       this.companies = data;
     } catch (e) {
       this.companies = [];
     } finally {
+      this.loading = false;
     }
   }
 }

@@ -3,7 +3,6 @@
     <Hero />
     <About />
     <Skills />
-    <SoftSkills />
     <Experience />
   </div>
 </template>
