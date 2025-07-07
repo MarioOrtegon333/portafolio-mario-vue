@@ -52,6 +52,40 @@ vue-portafolio
 
 ## Uso
 
+Para iniciar el servidor de desarrollo:
+```
+npm run serve
+```
+
+Para construir el proyecto para producción:
+```
+npm run build
+```
+
+Para ejecutar el servidor de producción:
+```
+npm start
+```
+
+## Deployment en Render
+
+Este proyecto está configurado para ser desplegado en Render. Para desplegar:
+
+1. Sube tu código a un repositorio de GitHub
+2. Conecta tu repositorio a Render
+3. Configura el servicio como Web Service
+4. Render automáticamente:
+   - Ejecutará `npm install`
+   - Ejecutará `npm run build`
+   - Iniciará el servidor con `npm start`
+
+### Configuración en Render:
+- **Build Command**: `npm install && npm run build`
+- **Start Command**: `npm start`
+- **Node Version**: 18.x o superior
+
+## Uso
+
 Para iniciar la aplicación en modo de desarrollo, ejecuta el siguiente comando:
 ```
 npm run serve
